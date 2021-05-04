@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const float GRAVITY_CONSTANT = -9.81f;
+    public float gravityScale = 1.0f;
+    private float gravity;
     public CharacterController controller;
     public float speed = 12f;
-    public float gravity = -9.81f;
+
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
@@ -19,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gravity = GRAVITY_CONSTANT * gravityScale;
     }
 
     // Update is called once per frame
