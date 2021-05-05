@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 58300518}
   - component: {fileID: 58300522}
   - component: {fileID: 58300521}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,3 +1074,4 @@ MonoBehaviour:
   speed: 6
   maxSpeed: 8
   jumpPower: 10
+  maxJumpCount: 2
