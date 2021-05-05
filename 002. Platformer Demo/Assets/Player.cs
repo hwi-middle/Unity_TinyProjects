@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rbd;
     public float speed;
     public float maxSpeed;
+    public float jumpPower;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,15 @@ public class Player : MonoBehaviour
         {
             rbd.velocity = new Vector2(rbd.velocity.normalized.x * 0.5f, rbd.velocity.y);
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            rbd.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        }
     }
 
     void FixedUpdate()
     {
-        Debug.Log(rbd.velocity);
         float axis = Input.GetAxisRaw("Horizontal") * speed;
         rbd.AddForce(Vector2.right * axis, ForceMode2D.Impulse);
 
