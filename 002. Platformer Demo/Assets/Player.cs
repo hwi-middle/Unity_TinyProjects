@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonUp("Horizontal"))
         {
-            rbd.velocity = new Vector2(rbd.velocity.normalized.x * 0.5f, rbd.velocity.y);
+            rbd.velocity = new Vector2(0f, rbd.velocity.y);
         }
 
         if (Input.GetButtonDown("Jump") && curJumpCount < maxJumpCount)
