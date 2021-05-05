@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravity;
     public CharacterController controller;
     public float speed = 12f;
+    public float alternativeSpeed = 12f; // 왼쪽 Shift 키가 눌렸을 때의 속도(일반 속도보다 느리거나 빠르게 지정)
 
     public float jumpHeight = 3f;
 
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = 0f;
         }
@@ -38,11 +39,20 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+
         Vector3 move = transform.right * x + transform.forward * z;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            move *= alternativeSpeed;
+        }
+        else
+        {
+            move *= speed;
+        }
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
