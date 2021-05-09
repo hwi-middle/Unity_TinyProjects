@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 301750929}
   - component: {fileID: 301750931}
   - component: {fileID: 301750933}
-  - component: {fileID: 301750932}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -272,27 +271,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 2
-  controller: {fileID: 301750929}
   speed: 12
-  alternativeSpeed: 18
+  alternativeSpeedFactor: 1.6
   jumpHeight: 3
   groundCheck: {fileID: 505155091}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &301750932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301750928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42afd50ab5ab9ca4cbc701d38b8b377c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  controller: {fileID: 301750929}
   audioClips:
   - {fileID: 8300000, guid: 03776e733a413b84db45dcb8b66820ab, type: 3}
   - {fileID: 8300000, guid: 64d60e8916a80db48921cba5b959c6b7, type: 3}
@@ -302,6 +289,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 327a8c9f1eb47f94f8334411f7acb6dd, type: 3}
   - {fileID: 8300000, guid: c08235cd6842da94da8c3f7ce2a0c400, type: 3}
   - {fileID: 8300000, guid: a40ee4b6d37d82d4d8925805a8c9a635, type: 3}
+  frequency: 0.6
 --- !u!82 &301750933
 AudioSource:
   m_ObjectHideFlags: 0
@@ -311,7 +299,7 @@ AudioSource:
   m_GameObject: {fileID: 301750928}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bfc124d57b6a9214a96daf578a4c5c46, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
