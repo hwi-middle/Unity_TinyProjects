@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     private bool isGrounded;
+    private bool isMoving = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-
         Vector3 move = transform.right * x + transform.forward * z;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -49,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         {
             move *= speed;
         }
+
+        if (move.x != 0 || move.z != 0) isMoving = true;
+        else isMoving = false;
 
         controller.Move(move * Time.deltaTime);
 
@@ -60,5 +64,14 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public bool GetIsMoving()
+    {
+        return isMoving;
+    }
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
     }
 }
